@@ -6,13 +6,7 @@ pipeline {
 
         stage('Checkout Project'){
           steps{
-            checkout([$class: 'GitSCM',
-                       branches: [[name: "refs/tags/${env.VERSION}" ]],
-                       doGenerateSubmoduleConfigurations: false,
-                       extensions: [],
-                       submoduleCfg: [],
-                       userRemoteConfigs: [[credentialsId: "$GIT_CREDENTIALS_ID",
-                       url: "$PROJECT_REPO" ]]])
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '1b3db33c-137e-47a6-b8ba-d89d7a5b0436', url: 'git@github.com:kishore0709/simple-java-maven-app.git']]])
             }
         }
         
